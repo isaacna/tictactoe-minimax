@@ -147,7 +147,16 @@ def printBoard(board):
 
 #method that runs the game 
 def main():
+    print("Board layout is indexed 0-2, enter your move in format 'X-coord Y-coord'")  
+    
     aiTurn = True 
+    goingFirst = raw_input("Do you want to go first? Y for yes, anything else for no \n")
+
+    if goingFirst == "Y":
+        aiTurn = False
+    else:
+        aiTurn = True
+
     board = [[None for r in range(3)] for c in range(3)]
     while(evaluate(board) == 0 and not isOver(board)): 
         if(aiTurn):
